@@ -40,10 +40,8 @@ def fibo_rec(n):
     else:
         return fibo_rec(n - 1) + fibo_rec(n - 2)
 
-
 def run():
     return 0
-
 
 if __name__ == "__main__":
     run()

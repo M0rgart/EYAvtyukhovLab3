@@ -14,10 +14,10 @@ def main():
             print("\033[31m{}".format(f'При num = {num} числа Фибоначчи различны'))
             check['fibo'] = False
 
-
     for func, res in check.items():
         if res:
             print("\033[32m{}".format(f'{func} работает исправно'))
+
 
 if __name__ == "__main__":
     main()
