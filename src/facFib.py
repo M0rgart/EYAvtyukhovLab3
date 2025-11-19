@@ -41,16 +41,9 @@ def fibo_rec(n):
         return fibo_rec(n - 1) + fibo_rec(n - 2)
 
 
-def test_fact_fibo(n):
-    #Вывод факториалов
-    print(factorial(n))
-    print(factorial_rec(n))
-    print(factorial_rec(n) == factorial(n))
-    #Вывод числа Фибоначчи
-    print(fibo(n))
-    print(fibo_rec(n))
-    print(fibo_rec(n) == fibo(n))
+def run():
+    return 0
 
 
 if __name__ == "__main__":
-    test_fact_fibo()
+    run()
