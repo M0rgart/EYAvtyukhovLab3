@@ -1,15 +1,18 @@
 from src.facFib import factorial, factorial_rec, fibo, fibo_rec
-from src.sortFunnctions import bubbleSort, quickSort, countingSort
-from src.constants import FACTRORIALTEST, FIBTEST, NEEDSORT
+from src.sortFunnctions import bubbleSort, quickSort, countingSort, radix_sort, bucket_sort, heap_sort
+from src.constants import FACTRORIALTEST, FIBTEST, NEEDSORT, NEEDSORTPOS, NEEDSORTBUCKET
 
 
 def main():
-    check = {"factorial": True, 'fibo': True, 'bubble_sort': True, 'quick_sort': True, 'counting_sort': True}
+    check = {"factorial": True, 'fibo': True, 'bubble_sort': True, 'quick_sort': True, 'counting_sort': True,
+             "radix_sort": True, "bucket_sort": True, "heap_sort": True}
+
     # Проверка функций для подсчета факториала
     for num in FACTRORIALTEST:
         if factorial(num) != factorial_rec(num):
             print("\033[31m{}".format(f'При num = {num} факториалы различны'))
             check['factorial'] = False
+
     # Проверка функций для подсчета числа Фибоначчи
     for num in FIBTEST:
         if fibo(num) != fibo_rec(num):
@@ -32,8 +35,20 @@ def main():
         print("\033[31m{}".format('Сортировка подсчетом не работает'))
         check['counting_sort'] = False
 
+    # Проверка поразрядной сортировки
+    if radix_sort(NEEDSORTPOS) != sorted(NEEDSORTPOS):
+        print("\033[31m{}".format('Поразрядная cортировка не работает'))
+        check['radix_sort'] = False
 
+    # Проверка сортировки блоками
+    if bucket_sort(NEEDSORTBUCKET) != sorted(NEEDSORTBUCKET):
+        print("\033[31m{}".format('Сортировка блоками не работает'))
+        check['bucket_sort'] = False
 
+    # Проверка сортировки кучами
+    if heap_sort(NEEDSORT) != sorted(NEEDSORT):
+        print("\033[31m{}".format('Сортировка кучами не работает'))
+        check['heap_sort'] = False
 
 
     for func, res in check.items():

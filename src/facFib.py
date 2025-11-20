@@ -1,40 +1,32 @@
-def factorial(n):
-    if not isinstance(n, int):
-        return "n must be an integer"
-    elif n < 0:
-        return "n must be positive"
+def factorial(n: int) -> int:
+    if n < 0:
+        raise ValueError("n must be positive")
     else:
         res = 1
         for i in range(1, n + 1):
             res *= i
         return res
 
-def factorial_rec(n):
-    if not isinstance(n, int):
-        return "n must be an integer"
-    elif n < 0:
-        return "n must be positive"
+def factorial_rec(n: int) -> int:
+    if n < 0:
+        raise ValueError("n must be positive")
     elif n == 1 or n == 0:
         return 1
     else:
         return n * factorial_rec(n - 1)
 
-def fibo(n):
-    if not isinstance(n, int):
-        return "n must be an integer"
-    elif n < 0:
-        return "n must be positive"
+def fibo(n: int) -> int:
+    if n < 0:
+        raise ValueError("n must be positive")
     else:
         a, b = 0, 1
         for _ in range(n):
             a, b = b, a + b
         return a
 
-def fibo_rec(n):
-    if not isinstance(n, int):
-        return "n must be an integer"
-    elif n < 0:
-        return "n must be positive"
+def fibo_rec(n: int) -> int:
+    if n < 0:
+        raise ValueError("n must be positive")
     elif n == 1 or n == 0:
         return n
     else:
