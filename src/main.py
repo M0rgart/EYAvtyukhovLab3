@@ -2,6 +2,8 @@ from src.facFib import factorial, factorial_rec, fibo, fibo_rec
 from src.sortFunnctions import bubbleSort, quickSort, countingSort, radix_sort, bucket_sort, heap_sort
 from src.constants import FACTRORIALTEST, FIBTEST, NEEDSORT, NEEDSORTPOS, NEEDSORTBUCKET
 from src.structures import Stack, Queue
+from src.additions import rand_int_array, rand_float_array, nearly_sorted, many_duplicates, reverse_sorted
+from src.additions import timeit_once, benchmark_sorts
 
 
 def main():
@@ -66,6 +68,26 @@ def main():
         queue.enqueue(i)
     print(f"Очередь: front = {queue.front()}, len = {stack.__len__()}, is_empty = {stack.is_empty()}")
     print("Dequeue:", queue.dequeue())
+
+    arrays = {
+        "random_100": rand_int_array(100, 0, 100),
+        "nearly_sorted_100": nearly_sorted(100, 5),
+        "reverse_100": reverse_sorted(100)
+    }
+
+    algos = {
+        "bubble_sort": bubbleSort,
+        "quick_sort": quickSort,
+        "counting_sort": countingSort,
+        "radix_sort": radix_sort,
+        "bucket_sort": bucket_sort,
+        "heap_sort": heap_sort
+    }
+
+    results = benchmark_sorts(arrays, algos)
+    print("\nРезультаты бенчмаркинга:")
+    for algo, times in results.items():
+        print(f"{algo}: {times}")
 
 
 if __name__ == "__main__":

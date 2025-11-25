@@ -95,3 +95,10 @@ class Queue:
         if self.is_empty():
             raise IndexError('queue is empty')
         return self._front.value
+
+
+def run():
+    return 0
+
+if __name__ == "__main__":
+    run()
